@@ -1,5 +1,6 @@
 ﻿import { Play } from 'lucide-react';
 import PlaylistCover from '../PlaylistCover.tsx';
+import { useNavigate } from 'react-router-dom';
 
 interface AlbumData {
   id: number;
@@ -31,16 +32,24 @@ const DashboardCard = ({
                          playIconColor,
                          playIconFill,
                        }: DashboardCardProps) => {
+  const navigate = useNavigate();
+
+  function doPlayTrack() {
+    playTrack({
+      id: album.id,
+      title: album.title,
+      artist: album.artist || 'Various Artists',
+      variant: album.id,
+    });
+  }
+
+  function doNavigatePlaylistPage() {
+    navigate(`/playlist/${album.id}`);
+  }
+
   return (
     <div
-      onClick={() =>
-        playTrack({
-          id: album.id,
-          title: album.title,
-          artist: album.artist || 'Various Artists',
-          variant: album.id,
-        })
-      }
+      onClick={doNavigatePlaylistPage}
       className={`group w-48 p-4 rounded-md transition-all duration-300 cursor-pointer shrink-0 snap-start flex flex-col gap-3 relative ${cardBg} ${borderStyle}`}
     >
       <div className="relative aspect-square w-full shadow-lg">
@@ -48,7 +57,7 @@ const DashboardCard = ({
         <button
           className={`absolute right-3 bottom-3 w-12 h-12 rounded-full flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-2xl hover:scale-105 active:scale-95 ${playBtnAccent} ${playIconColor}`}
         >
-          <Play size={22} fill={playIconFill} className="translate-x-[1.5px]" />
+          <Play size={22} fill={playIconFill} className="translate-x-[1.5px]" onClick={doPlayTrack} />
         </button>
       </div>
       <div className="flex flex-col min-w-0">
