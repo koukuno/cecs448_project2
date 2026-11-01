@@ -1,13 +1,12 @@
 import {Heart, Music} from 'lucide-react';
 
 const PlaylistCover = ({ title = "Playlist", isLiked = false, variant = 1, size = "w-12 h-12" }) => {
-  // Array of beautiful abstract Spotify-esque gradient styles
   const gradients = [
-    "from-[#2e2e2e] to-[#1a1a1a] text-[#a7a7a7]", // Dark Slate Minimal
-    "from-[#450af5] to-[#c4efd9] text-white",     // Classic Liked Songs Look
-    "from-[#e8115b] to-[#bc5100] text-white",     // Energetic Orange-Pink
-    "from-[#148a08] to-[#121212] text-white",     // Moody Forest Green
-    "from-[#004369] to-[#01949a] text-white"      // Deep Ocean Teal
+    "from-[#2e2e2e] to-[#1a1a1a] text-[#a7a7a7]",
+    "from-[#450af5] to-[#c4efd9] text-white",
+    "from-[#e8115b] to-[#bc5100] text-white",
+    "from-[#148a08] to-[#121212] text-white",
+    "from-[#004369] to-[#01949a] text-white"
   ];
 
   const selectedGradient = gradients[variant % gradients.length];
