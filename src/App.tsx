@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar.tsx";
 import Sidebar from "./components/Sidebar.tsx";
 import Player from "./components/Player.tsx";
 import Home from "./pages/Home.tsx";
+import Playlist from "./pages/Playlist.tsx";
 import { ThemeProvider, useTheme } from "./context/ThemeContext.tsx";
 import { AudioProvider, useAudio } from "./context/AudioContext.tsx";
 
@@ -43,6 +44,7 @@ function AppContent() {
           <main className={`flex-1 overflow-y-auto p-6 min-h-0 custom-scrollbar relative bg-linear-to-b transition-all duration-500 ease-out ${currentGradient} ${baseBg}`}>
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/playlist/:playlistId" element={<Playlist />} />
             </Routes>
           </main>
         </div>
