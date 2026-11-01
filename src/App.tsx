@@ -1,4 +1,4 @@
-import { BrowserRouter } from 'react-router-dom';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import './App.css';
 import Navbar from "./components/Navbar.tsx";
 import Sidebar from "./components/Sidebar.tsx";
@@ -41,7 +41,9 @@ function AppContent() {
         <div className={`flex-1 flex flex-col m-2 ml-0 rounded-lg overflow-hidden relative transition-all duration-300 ${panelBg}`}>
           <Navbar />
           <main className={`flex-1 overflow-y-auto p-6 min-h-0 custom-scrollbar relative bg-linear-to-b transition-all duration-500 ease-out ${currentGradient} ${baseBg}`}>
-            <Home />
+            <Routes>
+              <Route path="/" element={<Home />} />
+            </Routes>
           </main>
         </div>
       </div>
