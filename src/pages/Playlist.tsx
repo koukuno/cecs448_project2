@@ -55,7 +55,7 @@ interface SongRowProps {
 
 function SongRow({ songIndex, artist, name, durationSeconds, playIconFill, playIconColor, playBtnAccent, onClickAdd, onClickPlay }: SongRowProps) {
     return (
-        <tr>
+        <tr className="song-row">
             <td className="py-2 flex space-x-2">
                 <button
                     className={`w-8 h-8 rounded-full flex items-center justify-center group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-2xl hover:scale-105 active:scale-95 ${playBtnAccent} ${playIconColor}`}
@@ -159,7 +159,7 @@ const Playlist = () => {
                     </tr>
                 </thead>
 
-                <tbody className="text-center song-row">
+                <tbody className="text-center">
                     <SongRow songIndex={1} artist="SomeArtist" name="SomeSong" durationSeconds={600} playIconColor={themeStyles.playIconColor} playIconFill={themeStyles.playIconFill} playBtnAccent={themeStyles.playBtnAccent} onClickAdd={() => { }} onClickPlay={() => { }} />
                     <SongRow songIndex={2} artist="SomeArtist" name="SomeSong (remix)" durationSeconds={60} playIconColor={themeStyles.playIconColor} playIconFill={themeStyles.playIconFill} playBtnAccent={themeStyles.playBtnAccent} onClickAdd={() => { }} onClickPlay={() => { }} />
                 </tbody>
