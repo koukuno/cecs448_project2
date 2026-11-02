@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Play, Plus, Shuffle } from 'lucide-react';
+import { Heart, Play, Plus, Shuffle } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { useAudio } from "../context/AudioContext.tsx";
 import PlaylistCover from '../components/PlaylistCover.tsx';
@@ -66,6 +66,11 @@ function SongRow({ songIndex, artist, name, durationSeconds, playIconFill, playI
                     className={`w-8 h-8 rounded-full flex items-center justify-center group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-2xl hover:scale-105 active:scale-95 ${playBtnAccent} ${playIconColor}`}
                 >
                     <Plus size={22} fill={playIconFill} onClick={onClickAdd} />
+                </button>
+                <button
+                    className={`w-8 h-8 rounded-full flex items-center justify-center group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-2xl hover:scale-105 active:scale-95 ${playBtnAccent} ${playIconColor}`}
+                >
+                    <Heart size={22} fill={playIconFill} onClick={onClickAdd} />
                 </button>
             </td>
             <td className="py-2">{songIndex}</td>
@@ -141,6 +146,11 @@ const Playlist = () => {
                         className={`w-12 h-12 rounded-full flex items-center justify-center group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-2xl hover:scale-105 active:scale-95 ${themeStyles.playBtnAccent} ${themeStyles.playIconColor}`}
                     >
                         <Shuffle size={22} fill={themeStyles.playIconFill} onClick={() => { }} />
+                    </button>
+                    <button
+                        className={`w-12 h-12 rounded-full flex items-center justify-center group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-2xl hover:scale-105 active:scale-95 ${themeStyles.playBtnAccent} ${themeStyles.playIconColor}`}
+                    >
+                        <Heart size={22} fill={themeStyles.playIconFill} onClick={() => { }} />
                     </button>
                 </div>
 
